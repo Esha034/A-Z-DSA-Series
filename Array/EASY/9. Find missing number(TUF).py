@@ -21,6 +21,8 @@ Space: O(1)
 
 
 
+
+
 Better (Hashing)
 # Idea
 Instead of searching every time, I store all numbers in a set.
@@ -48,6 +50,8 @@ Checking from 0 to n → O(n)
 
 Space: O(n)
 Extra space for the set.
+
+
 
 
 
