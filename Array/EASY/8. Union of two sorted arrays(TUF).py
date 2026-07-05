@@ -4,14 +4,14 @@ Brute Force (Using Set)
 Since the union contains only distinct elements,
 I can insert all elements from both arrays into a set to remove duplicates
 
-Algorithm
+#Algorithm
 a.Create an empty set.
 b.Insert all elements of nums1 and nums2.
 c.Convert the set into a list.
 d.Sort it.
 e. Return the list.
+    
 #code
-```
 class Solution:
     def findUnion(self, nums1, nums2):
         s =set()
@@ -20,7 +20,6 @@ class Solution:
         for num in nums2:
             s.add(num)
         return sorted(list(s))
-```
 #Complexity
 Time: O((n+m)log(n+m))
 Inserting into the set takes O(n+m).
@@ -40,7 +39,7 @@ I always add the smaller element to the answer and move that pointer.
 If both elements are equal, I add it only once and move both pointers.
 This avoids duplicates and maintains sorted order.
 
-Algorithm
+#Algorithm
 a.Take two pointers:
 i → nums1
 j → nums2
