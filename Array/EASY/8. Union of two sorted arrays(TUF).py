@@ -10,8 +10,8 @@ b.Insert all elements of nums1 and nums2.
 c.Convert the set into a list.
 d.Sort it.
 e. Return the list.
-```
 #code
+```
 class Solution:
     def findUnion(self, nums1, nums2):
         s =set()
