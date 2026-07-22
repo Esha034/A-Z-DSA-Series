@@ -1,33 +1,21 @@
-Brute Force (Linear Search)
-
+Optimal (XOR)
 #Idea 
-For every element, I count how many times it appears in the array. 
-The element with frequency 1 is the answer.
-
-#Algorithm
-Traverse every element.
-Count its frequency by traversing the array again.
-If frequency is 1, return that element.
+Every number except one appears exactly twice.
+XOR has the property that a number XOR itself becomes 0,
+so all duplicate numbers cancel each other.
+The only remaining value is the single number.
 
 #code
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        n=len(nums)
-        for i in range(n):
-            count=0
-            for j in range(n):
-                if nums[i]==nums[j]:
-                    count+=1
-            if count==1:
-                return nums[i]
+        res=0
+        for num in nums:
+            res^=num
+        return res
 
 #Complexity
-Time: O(n²)
+Time: O(n)
 Space: O(1)
-
-
-
-
 
 
 
@@ -64,25 +52,36 @@ Space: O(n)
 Hash map stores frequencies.
 
 
+Brute Force (Linear Search)
 
-
-
-  
-Optimal (XOR)
 #Idea 
-Every number except one appears exactly twice.
-XOR has the property that a number XOR itself becomes 0,
-so all duplicate numbers cancel each other.
-The only remaining value is the single number.
+For every element, I count how many times it appears in the array. 
+The element with frequency 1 is the answer.
+
+#Algorithm
+Traverse every element.
+Count its frequency by traversing the array again.
+If frequency is 1, return that element.
 
 #code
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        res=0
-        for num in nums:
-            res^=num
-        return res
+        n=len(nums)
+        for i in range(n):
+            count=0
+            for j in range(n):
+                if nums[i]==nums[j]:
+                    count+=1
+            if count==1:
+                return nums[i]
 
 #Complexity
-Time: O(n)
+Time: O(n²)
 Space: O(1)
+
+
+
+
+
+  
+
