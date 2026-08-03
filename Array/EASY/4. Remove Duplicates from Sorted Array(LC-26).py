@@ -8,6 +8,17 @@
 7.Copy nums[j] to nums[i].
 8.Return i + 1.
 
+
+#intuition
+
+Since the array is sorted, all duplicate values are adjacent. 
+I use two pointers. The left pointer points to the last unique element, while the right pointer scans the array. 
+If the current right element is different from the left element, it is a new unique value.
+I increment the left pointer and copy the new unique value to that position. 
+After scanning the entire array, the first l + 1 positions contain all unique elements, so I return l + 1.
+
+
+#code
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
 
