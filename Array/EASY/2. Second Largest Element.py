@@ -5,23 +5,39 @@ At every step, we maintain the invariant:
 3.Whenever a new maximum is found, the old maximum becomes the
 second largest and new maximum becomes the largest.
 
-def secondLargest(nums):
-    largest = float('-inf')
-    second = float('-inf')
 
-    for num in nums:
+#Intuition:
 
-        if num > largest:
-            second = largest
-            largest = num
+ I maintain two variables: largest and second_largest. Initially, largest is the first array element, and second_largest is initialized to negative infinity.
+I traverse the array once. If the current element is greater than largest, I move the current largest value into second_largest and update largest.
+Otherwise, if the current element is smaller than largest but greater than second_largest, I update second_largest.
+The condition num < largest ensures that duplicate occurrences of the largest element are ignored. 
+At the end, if second_largest was never updated, I return -1; otherwise, I return it.
 
-        elif largest > num > second:
-            second = num
+#code
 
-    if second == float('-inf'):
-        return -1
+class Solution:
+    def secondLargestElement(self, nums):
 
-    return second
+        largest = nums[0]
+        second_largest = float('-inf')
+
+        for num in nums:
+
+            # A new largest element is found
+            if num > largest:
+                second_largest = largest
+                largest = num
+
+            # Update the second-largest distinct element
+            elif largest > num > second_largest:
+                second_largest = num
+
+        # Second-largest distinct element does not exist
+        if second_largest == float('-inf'):
+            return -1
+
+        return second_largest
 
 #Complexity
 Time:O(n)-Only one traversal.
