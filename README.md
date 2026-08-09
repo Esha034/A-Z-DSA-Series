@@ -5,7 +5,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/Esha034/Striver-A-Z-DSA-Series)
 ![Language](https://img.shields.io/badge/Language-Python-blue)
 
-A complete collection of my solutions to the ** A-Z DSA Sheet**, implemented in **Python**.
+A complete collection of my solutions to the **A-Z DSA Sheet**, implemented in **Python**.
 
 This repository documents my journey of mastering **Data Structures & Algorithms** through consistent problem solving.
 
