@@ -30,7 +30,7 @@ No extra data structure is used.
 
 
 
-Approach 2: Optimal (HashMap)
+Approach 2: Better (HashMap)
 
 #Idea
 For every element, I calculate the number needed to reach the target (target - current).
