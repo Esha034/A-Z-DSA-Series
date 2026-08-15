@@ -87,6 +87,11 @@ class Solution:
 
 4. Optimal — Two Pointers
 
+Idea:
+Since the array contains only 0s and 1s, I use two pointers: left starts from the beginning and right from the end. 
+The left pointer skips all 0s because they are already in their correct position, while the right pointer skips all 1s because they are also correctly positioned.
+When left finds a 1 and right finds a 0, both are in the wrong positions, so I swap them. After the swap, I move both pointers inward. 
+I continue this until the pointers meet. This rearranges the array in-place
 #code
 class Solution:
     def segregate0and1(self, arr):
