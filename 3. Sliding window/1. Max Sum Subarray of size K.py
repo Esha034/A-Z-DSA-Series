@@ -1,5 +1,3 @@
-
-
 1. Brute Force — O(n × k)
 
 For every possible starting position, calculate the sum of the next k elements from scratch.
@@ -8,10 +6,7 @@ For every possible starting position, calculate the sum of the next k elements f
 class Solution:
     def maxSubarraySum(self, arr, k):
         n = len(arr)
-
-
         max_sum = 0
-
 
         for i in range(n - k + 1):
             curr_sum = 0
@@ -45,25 +40,18 @@ We can precompute the sum up to every index. Then the sum of any subarray can be
 class Solution:
     def maxSubarraySum(self, arr, k):
         n = len(arr)
-
-
         prefix = [0] * (n + 1)
-
 
         for i in range(n):
             prefix[i + 1] = prefix[i] + arr[i]
 
-
         max_sum = 0
-
 
         for i in range(n - k + 1):
             curr_sum = prefix[i + k] - prefix[i]
 
-
             if curr_sum > max_sum:
                 max_sum = curr_sum
-
 
         return max_sum
 
@@ -77,10 +65,10 @@ Space: O(n)
 
 
 
+
 3. Optimal — Sliding Window
 
 #My code
-
 class Solution:
     def maxSubarraySum(self, arr, k):
         
@@ -116,18 +104,22 @@ class Solution:
     def maxSubarraySum(self, arr, k):
         
         n=len(arr)
-        if n<k:
-            return 0
-            
-        curr_sum=sum(arr[:k])
-        max_sum=curr_sum
+        low,high=0,k
+        curr_sum=0
+        max_sum=float("-inf")
         
-        for i in range(k,n):
-            curr_sum=curr_sum+arr[i]-arr[i-k]
+        for i in range(k):
+            curr_sum+=arr[i]
+            
+        max_sum=curr_sum
+            
+        for high in range(k,n):
+            curr_sum+=arr[high]-arr[low]
+            low+=1
             if curr_sum>max_sum:
                 max_sum=curr_sum
+                
         return max_sum
-            
         
         
 Complexity:
