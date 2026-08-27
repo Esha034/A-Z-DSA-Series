@@ -1,4 +1,4 @@
-1. Brute Force — O(n × k)
+1. Brute Force
 
 For every possible starting position, calculate the sum of the next k elements from scratch.
 
@@ -33,7 +33,7 @@ Space: O(1)
 
 
 
-2. Better — Prefix Sum O(n)
+2. Better — Prefix Sum 
 
 We can precompute the sum up to every index. Then the sum of any subarray can be calculated in O(1).
 
