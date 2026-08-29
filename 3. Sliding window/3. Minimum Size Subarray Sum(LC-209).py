@@ -131,7 +131,7 @@ Space: O(n)
 
 
 
-3. Optimal — Sliding Window O(n)
+3. Optimal — Sliding Window
 
 
 #code
