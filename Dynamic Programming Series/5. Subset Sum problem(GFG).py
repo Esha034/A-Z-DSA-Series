@@ -5,9 +5,9 @@ class Solution:
         n=len(arr)
         dp={}
         def dfs(i,sum):
+            if sum==0:
+                return True
             if i==n:
-                if sum==0:
-                    return True
                 return False
                 
             if (i,sum) in dp:
