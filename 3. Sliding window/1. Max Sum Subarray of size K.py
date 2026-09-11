@@ -99,28 +99,24 @@ Then, whenever the window moves one position, I remove the element leaving the w
 This avoids recalculating the entire sum.
 
 #optimal code
-
+            
 class Solution:
     def maxSubarraySum(self, arr, k):
         
         n=len(arr)
-        low,high=0,k
         curr_sum=0
-        max_sum=float("-inf")
-        
         for i in range(k):
             curr_sum+=arr[i]
             
         max_sum=curr_sum
-            
+        low=0
+        
         for high in range(k,n):
-            curr_sum+=arr[high]-arr[low]
-            low+=1
+            curr_sum=sum+arr[high]-arr[low]
             if curr_sum>max_sum:
                 max_sum=curr_sum
-                
-        return max_sum
-        
+            low+=1
+        return max_sum        
         
 Complexity:
 
