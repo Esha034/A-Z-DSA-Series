@@ -84,6 +84,34 @@ class Solution:
 
 
 
+#Optimal code
+
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        n=len(s)
+        maxlen=float("-inf")
+        maxfreq=0
+        currlen=0
+        freq={}
+        low=0
+        for high in range(n):
+
+            freq[s[high]]=freq.get(s[high],0)+1
+
+            if freq[s[high]]>maxfreq:
+                maxfreq=freq[s[high]]
+
+            while (high-low+1)-maxfreq>k:
+                freq[s[low]]-=1
+                if freq[s[low]]==0:
+                    del freq[s[low]]
+                low+=1
+
+            if (high-low+1)-maxfreq<=k:
+                maxlen=max(maxlen,high-low+1)
+        return maxlen
+
+
 
 3. Sliding Window + Array Frequency — O(n) 
 
