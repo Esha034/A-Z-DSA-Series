@@ -71,6 +71,39 @@ Space: O(n)
 
 
 
+
+
+
+
+
+
+#optimal my code
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        n=len(s)
+        freq={}
+        maxlen=0
+        currlen=0
+        low=0
+        for high in range(n):
+            freq[s[high]]=freq.get(s[high],0)+1
+            while len(freq)<(high-low+1):
+                freq[s[low]]-=1
+                if freq[s[low]]==0:
+                    del freq[s[low]]
+                low+=1
+            if len(freq)==(high-low+1):
+                currlen=high-low+1
+                maxlen=max(maxlen,currlen)
+        return maxlen
+
+
+
+
+
+
+
 3. Optimized Sliding Window — Last Seen Index
 
 #optimal code
