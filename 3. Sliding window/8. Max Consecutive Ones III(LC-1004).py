@@ -2,26 +2,28 @@
 
 class Solution:
     def longestOnes(self, nums, k):
-        low = 0
-        zeros = 0
-        maxlen = 0
+        n = len(nums)
+        zeroes=0
+        maxlen=0
+        currlen=0
+        low=0
+        
+        for high in range(n):
 
-        for high in range(len(nums)):
+            if nums[high]==0:
+                zeroes+=1
 
-            if nums[high] == 0:
-                zeros += 1
+            if zeroes>k:
+                if nums[low]==0:
+                    zeroes-=1
+                low+=1
+                
 
-            while zeros > k:
+            currlen=high-low+1
 
-                if nums[low] == 0:
-                    zeros -= 1
-
-                low += 1
-
-            curr_len = high - low + 1
-
-            if curr_len > maxlen:
-                maxlen = curr_len
+            if currlen>maxlen:
+                maxlen=currlen
+        return maxlen
 
 
 # Complexity
