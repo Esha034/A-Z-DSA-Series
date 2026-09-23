@@ -21,3 +21,9 @@ class Solution:
             else:
                 diffmap[diff]=i
         return res
+
+
+Complexity:
+
+Time: O(n)
+Space: O(n)
