@@ -1,0 +1,15 @@
+
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        n=len(s)
+        freq={}
+        for l in s:
+            if l in freq:
+                freq[l]+=1
+            else:
+                freq[l]=1
+
+        for i in range(n):
+            if freq[s[i]]==1:
+                return i
+        return -1
