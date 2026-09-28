@@ -3,14 +3,15 @@ class Solution:
         
         n=len(arr)
         low,high=0,n-1
-        ans=float("inf")
+        ans=-1
         
         while low<=high:
             mid=(low+high)//2
             if arr[mid]>=x:
-                ans=min(ans,mid)
+                ans=mid
                 high=mid-1
             else:
                 low=mid+1
-        return ans if ans!= float("inf") else -1
-        # code here
+                
+        return ans 
+       
