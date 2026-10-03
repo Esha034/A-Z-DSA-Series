@@ -1,1 +1,2 @@
 BruteForce Approach
+Better Approach
