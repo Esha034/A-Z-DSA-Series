@@ -10,6 +10,36 @@ Decide whether speed should increase or decrease
 Try another speed
 
 
+#optimsl code
+
+
+class Solution:
+    def minEatingSpeed(self, piles: list[int], h: int) -> int:
+        # Calculate hours needed at this speed
+        def cal_hrs(speed):
+            hrs=0
+            for pile in piles:
+                hrs+= pile//speed
+                if pile%speed!=0:
+                    hrs+=1
+            return hrs
+
+        low,high=1,max(piles)
+
+        while low<=high:
+            speed=(low+high)//2
+            hours=cal_hrs(speed)
+             # Fast enough → try a smaller speed
+            if hours<=h:
+                high=speed-1
+            # Too slow → increase speed
+            else:
+                low=speed+1
+        return low
+
+
+
+
 class Solution:
     def minEatingSpeed(self, piles: list[int], h: int) -> int:
         low = 1
