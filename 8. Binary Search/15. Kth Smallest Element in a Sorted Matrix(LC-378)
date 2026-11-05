@@ -1,11 +1,12 @@
+#optimal code
+
 class Solution:
     def kthSmallest(self, matrix: list[list[int]], k: int) -> int:
-        m=len(matrix)
-        n=len(matrix[0])
-        
+        n=len(matrix)
+       
         def count_elements(mid):
-            row=m-1
-            col=0
+
+            row,col=n-1,0
             count=0
             while row>=0 and col<n:
                 if matrix[row][col]<=mid:
@@ -15,17 +16,24 @@ class Solution:
                     row-=1
             return count
 
-        low,high=matrix[0][0],matrix[m-1][n-1]
-        ans=-1
+        
+        low,high=matrix[0][0],matrix[n-1][n-1]
+        ans=high
         while low<=high:
             mid=(low+high)//2
             count=count_elements(mid)
+
             if count<k:
                 low=mid+1
             else:
                 ans=mid
                 high=mid-1
         return ans
+
+        
+
+
+
     
             
 
